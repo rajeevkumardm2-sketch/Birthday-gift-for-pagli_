@@ -1,0 +1,928 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+
+  --bg:#08030a;
+
+  --pink:#ff86b6;
+
+  --pink2:#ff3f8b;
+
+  --gold:#ffd78a;
+
+  --white:#ffffff;
+
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+
+  background:var(--bg);
+
+  color:white;
+
+  font-family:
+  Georgia,
+  "Times New Roman",
+  serif;
+
+  overflow-x:hidden;
+
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  pointer-events:none;
+
+  z-index:-5;
+
+  background:
+
+  radial-gradient(
+    circle at 50% 20%,
+    rgba(255,60,140,.16),
+    transparent 35%
+  ),
+
+  radial-gradient(
+    circle at 10% 90%,
+    rgba(130,60,255,.10),
+    transparent 30%
+  );
+
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.hero,
+.section,
+.final{
+
+  min-height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  position:relative;
+
+  padding:70px 20px;
+
+  overflow:hidden;
+
+}
+
+
+.content{
+
+  width:min(760px,100%);
+
+  text-align:center;
+
+  position:relative;
+
+  z-index:5;
+
+}
+
+
+.wide{
+
+  width:min(1100px,100%);
+
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.eyebrow{
+
+  font-family:Arial,sans-serif;
+
+  font-size:11px;
+
+  letter-spacing:4px;
+
+  color:#ffabc9;
+
+  margin-bottom:20px;
+
+}
+
+
+h1{
+
+  font-size:
+  clamp(48px,12vw,90px);
+
+  line-height:.95;
+
+  font-weight:500;
+
+}
+
+
+h1 span,
+h2 span{
+
+  color:var(--pink);
+
+  text-shadow:
+  0 0 30px
+  rgba(255,70,140,.65);
+
+}
+
+
+h2{
+
+  font-size:
+  clamp(32px,7vw,58px);
+
+  line-height:1.08;
+
+  font-weight:500;
+
+  margin-bottom:30px;
+
+}
+
+
+h3{
+
+  margin-top:25px;
+
+  font-size:22px;
+
+  color:#fff;
+
+}
+
+
+p{
+
+  font-family:Arial,sans-serif;
+
+  color:#ddd;
+
+  line-height:1.9;
+
+  font-size:16px;
+
+}
+
+
+.lead{
+
+  font-size:18px;
+
+  margin-top:25px;
+
+}
+
+
+.pinkText{
+
+  color:#ffabc9!important;
+
+}
+
+
+.goldText{
+
+  color:var(--gold)!important;
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+
+  cursor:pointer;
+
+}
+
+
+#openBtn,
+#replay{
+
+  margin-top:32px;
+
+  padding:15px 28px;
+
+  border-radius:50px;
+
+  border:1px solid
+  rgba(255,170,205,.4);
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(255,70,140,.25),
+    rgba(255,255,255,.06)
+  );
+
+  color:white;
+
+  font:bold 14px Arial;
+
+  transition:.3s;
+
+  box-shadow:
+  0 0 30px
+  rgba(255,50,130,.12);
+
+}
+
+
+#openBtn:hover,
+#replay:hover{
+
+  transform:
+  translateY(-4px)
+  scale(1.03);
+
+  box-shadow:
+  0 0 45px
+  rgba(255,50,130,.35);
+
+}
+
+
+.scrollHint{
+
+  margin-top:65px;
+
+  color:#999;
+
+  font:11px Arial;
+
+  letter-spacing:2px;
+
+}
+
+
+/* =========================
+   HEART
+========================= */
+
+.heartIcon{
+
+  font-size:80px;
+
+  color:var(--pink);
+
+  text-shadow:
+  0 0 30px
+  rgba(255,50,140,.7);
+
+  animation:pulse 1.7s infinite;
+
+}
+
+
+@keyframes pulse{
+
+  50%{
+
+    transform:scale(1.15);
+
+  }
+
+}
+
+
+/* =========================
+   GLASS CARD
+========================= */
+
+.glass{
+
+  padding:35px 30px;
+
+  border-radius:28px;
+
+  background:
+  rgba(255,255,255,.055);
+
+  border:
+  1px solid
+  rgba(255,255,255,.14);
+
+  backdrop-filter:blur(15px);
+
+  -webkit-backdrop-filter:blur(15px);
+
+  box-shadow:
+  0 25px 80px
+  rgba(0,0,0,.35);
+
+}
+
+
+.glass p + p{
+
+  margin-top:22px;
+
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:22px;
+
+  margin-top:35px;
+
+}
+
+
+.photoCard{
+
+  padding:12px;
+
+  background:
+  rgba(255,255,255,.055);
+
+  border:
+  1px solid
+  rgba(255,255,255,.14);
+
+  border-radius:25px;
+
+  box-shadow:
+  0 20px 60px
+  rgba(0,0,0,.35);
+
+  transition:.5s;
+
+}
+
+
+.photoCard:hover{
+
+  transform:
+  translateY(-8px)
+  scale(1.01);
+
+}
+
+
+.photo{
+
+  overflow:hidden;
+
+  border-radius:17px;
+
+  aspect-ratio:4/5;
+
+}
+
+
+.photo img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+
+  transition:
+  transform 1.2s ease;
+
+}
+
+
+.photoCard:hover img{
+
+  transform:scale(1.08);
+
+}
+
+
+.photoCard p{
+
+  padding:
+  15px 5px 5px;
+
+  font-style:italic;
+
+}
+
+
+.large{
+
+  grid-column:1/-1;
+
+}
+
+
+.large .photo{
+
+  aspect-ratio:16/9;
+
+}
+
+
+/* =========================
+   CAKE
+========================= */
+
+.cake{
+
+  font-size:80px;
+
+  margin-bottom:15px;
+
+  filter:
+  drop-shadow(
+    0 0 25px
+    rgba(255,120,170,.45)
+  );
+
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+.giftButton{
+
+  border:0;
+
+  background:none;
+
+  color:white;
+
+  margin:20px auto;
+
+  display:flex;
+
+  align-items:center;
+
+  flex-direction:column;
+
+}
+
+
+.giftEmoji{
+
+  font-size:110px;
+
+  animation:
+  giftFloat 2s ease-in-out infinite;
+
+  filter:
+  drop-shadow(
+    0 0 35px
+    rgba(255,60,140,.55)
+  );
+
+}
+
+
+.giftButton span{
+
+  background:
+  rgba(255,255,255,.08);
+
+  border:
+  1px solid
+  rgba(255,255,255,.15);
+
+  padding:13px 23px;
+
+  border-radius:50px;
+
+  font:bold 14px Arial;
+
+}
+
+
+@keyframes giftFloat{
+
+  50%{
+
+    transform:
+    translateY(-12px)
+    rotate(-3deg);
+
+  }
+
+}
+
+
+.hidden{
+
+  display:none;
+
+}
+
+
+#heartMessage{
+
+  margin-top:35px;
+
+  animation:
+  messagePop .7s ease;
+
+}
+
+
+@keyframes messagePop{
+
+  from{
+
+    opacity:0;
+
+    transform:
+    scale(.8)
+    translateY(30px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:none;
+
+  }
+
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+
+  isolation:isolate;
+
+}
+
+
+.finalBackground{
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+  url("images/us.jpg")
+  center/cover no-repeat;
+
+  filter:
+  blur(6px)
+  brightness(.38);
+
+  transform:scale(1.07);
+
+  z-index:-2;
+
+}
+
+
+.finalOverlay{
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+
+  linear-gradient(
+    180deg,
+    rgba(5,2,8,.75),
+    rgba(10,3,10,.45),
+    rgba(5,2,8,.9)
+  );
+
+  z-index:-1;
+
+}
+
+
+.finalContent{
+
+  max-width:850px;
+
+}
+
+
+.starsText{
+
+  color:#ffd98e;
+
+  font-size:22px;
+
+  margin-bottom:20px;
+
+}
+
+
+.finalText{
+
+  margin-top:30px;
+
+  font-size:17px;
+
+  line-height:2;
+
+}
+
+
+.signature{
+
+  margin-top:30px;
+
+  color:#ffabc9;
+
+  font-style:italic;
+
+}
+
+
+/* =========================
+   KITKAT RAIN
+========================= */
+
+.kitkat{
+
+  position:fixed;
+
+  top:-80px;
+
+  z-index:1;
+
+  pointer-events:none;
+
+  font-size:22px;
+
+  animation:
+  kitkatFall linear forwards;
+
+  opacity:.75;
+
+}
+
+
+@keyframes kitkatFall{
+
+  0%{
+
+    transform:
+    translateY(-80px)
+    rotate(0deg);
+
+  }
+
+  100%{
+
+    transform:
+    translateY(110vh)
+    rotate(520deg);
+
+  }
+
+}
+
+
+/* =========================
+   HEARTS
+========================= */
+
+.floatingHeart{
+
+  position:fixed;
+
+  bottom:-50px;
+
+  z-index:2;
+
+  pointer-events:none;
+
+  animation:
+  heartFloat linear forwards;
+
+  color:#ff78aa;
+
+  text-shadow:
+  0 0 15px
+  rgba(255,60,140,.7);
+
+}
+
+
+@keyframes heartFloat{
+
+  0%{
+
+    transform:
+    translateY(0)
+    scale(.7);
+
+    opacity:0;
+
+  }
+
+  15%{
+
+    opacity:.8;
+
+  }
+
+  100%{
+
+    transform:
+    translateY(-110vh)
+    translateX(70px)
+    scale(1.3);
+
+    opacity:0;
+
+  }
+
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.star{
+
+  position:fixed;
+
+  width:2px;
+
+  height:2px;
+
+  background:white;
+
+  border-radius:50%;
+
+  opacity:.7;
+
+  animation:
+  twinkle 2s infinite alternate;
+
+  pointer-events:none;
+
+  z-index:0;
+
+}
+
+
+@keyframes twinkle{
+
+  from{
+    opacity:.2;
+  }
+
+  to{
+    opacity:1;
+  }
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+#toast{
+
+  position:fixed;
+
+  left:50%;
+
+  bottom:25px;
+
+  transform:
+  translate(-50%,30px);
+
+  background:
+  rgba(15,4,12,.9);
+
+  border:
+  1px solid
+  rgba(255,150,190,.25);
+
+  padding:
+  13px 20px;
+
+  border-radius:50px;
+
+  font:13px Arial;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  z-index:100;
+
+  transition:.5s;
+
+  white-space:nowrap;
+
+}
+
+
+#toast.show{
+
+  opacity:1;
+
+  transform:
+  translate(-50%,0);
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px){
+
+  .gallery{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .large{
+
+    grid-column:auto;
+
+  }
+
+  .large .photo{
+
+    aspect-ratio:4/5;
+
+  }
+
+  .glass{
+
+    padding:27px 20px;
+
+  }
+
+  .kitkat{
+
+    font-size:17px;
+
+  }
+
+  #toast{
+
+    max-width:90%;
+
+    white-space:normal;
+
+    text-align:center;
+
+  }
+
+}
